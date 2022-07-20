@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WindowsFormHotelManagementSystem"
+    "\\WindowsFormHotelManagementSystem",
+    "\\WindowsFormHotelManagementSystem\\Forms",
+    "\\WindowsFormHotelManagementSystem\\Service"
   ],
-  "SelectedNode": "\\WindowsFormHotelManagementSystem\\FormLogIn.cs",
+  "SelectedNode": "\\WindowsFormHotelManagementSystem.sln",
   "PreviewInSolutionExplorer": false
 }

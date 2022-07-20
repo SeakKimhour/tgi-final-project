@@ -159,6 +159,7 @@
             this.txtadvance.Name = "txtadvance";
             this.txtadvance.Size = new System.Drawing.Size(409, 29);
             this.txtadvance.TabIndex = 12;
+            this.txtadvance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtadvance_KeyPress);
             // 
             // txtsubtotal
             // 
@@ -167,6 +168,7 @@
             this.txtsubtotal.Name = "txtsubtotal";
             this.txtsubtotal.Size = new System.Drawing.Size(409, 29);
             this.txtsubtotal.TabIndex = 11;
+            this.txtsubtotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsubtotal_KeyPress);
             // 
             // txtdiscounttype
             // 
@@ -175,6 +177,7 @@
             this.txtdiscounttype.Name = "txtdiscounttype";
             this.txtdiscounttype.Size = new System.Drawing.Size(409, 29);
             this.txtdiscounttype.TabIndex = 10;
+            this.txtdiscounttype.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdiscounttype_KeyPress);
             // 
             // lblSubTotal
             // 
@@ -203,6 +206,7 @@
             this.txtphone.Name = "txtphone";
             this.txtphone.Size = new System.Drawing.Size(321, 29);
             this.txtphone.TabIndex = 2;
+            this.txtphone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtphone_KeyPress);
             // 
             // txtnationalid
             // 
@@ -239,6 +243,7 @@
             this.txtguestname.Name = "txtguestname";
             this.txtguestname.Size = new System.Drawing.Size(321, 29);
             this.txtguestname.TabIndex = 0;
+            this.txtguestname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtguestname_KeyPress);
             // 
             // lblPhoneNumber
             // 
@@ -317,6 +322,7 @@
             this.txtnumofdays.Name = "txtnumofdays";
             this.txtnumofdays.Size = new System.Drawing.Size(321, 29);
             this.txtnumofdays.TabIndex = 7;
+            this.txtnumofdays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnumofdays_KeyPress);
             // 
             // txtnumofadults
             // 
@@ -325,6 +331,7 @@
             this.txtnumofadults.Name = "txtnumofadults";
             this.txtnumofadults.Size = new System.Drawing.Size(321, 29);
             this.txtnumofadults.TabIndex = 8;
+            this.txtnumofadults.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnumofadults_KeyPress);
             // 
             // txtroomnum
             // 
@@ -359,6 +366,7 @@
             this.txtnumofchildren.Name = "txtnumofchildren";
             this.txtnumofchildren.Size = new System.Drawing.Size(321, 29);
             this.txtnumofchildren.TabIndex = 9;
+            this.txtnumofchildren.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnumofchildren_KeyPress);
             // 
             // lblAdvancePayment
             // 
