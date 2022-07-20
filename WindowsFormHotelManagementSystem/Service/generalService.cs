@@ -54,7 +54,7 @@ namespace WindowsFormHotelManagementSystem.Service
 
             foreach (CustomerInfoModel cs in customerInfoList)
             {
-                if (cs.cs_id.Equals(csid))
+                if (cs.cs_id.Equals(csid.r_cs_id))
                 {
                     return cs;
                 }
