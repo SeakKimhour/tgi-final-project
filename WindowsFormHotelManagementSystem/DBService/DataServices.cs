@@ -46,7 +46,7 @@ namespace postgresqlTest.Services
             NpgsqlDataReader rdr3 = cmd1.ExecuteReader();
             while (rdr3.Read())
             {
-                roomList.Add(new RoomModel(rdr3.GetGuid(0).ToString(), rdr3.GetString(1), rdr3.GetString(2), rdr3.GetString(3), rdr3.GetString(4)));
+                roomList.Add(new RoomModel(rdr3.GetGuid(0).ToString(), rdr3.GetString(1), rdr3.GetString(2), rdr3.GetString(3), rdr3.GetString(4), rdr3.GetInt32(5)));
             }
             rdr.DisposeAsync();
 
@@ -54,7 +54,7 @@ namespace postgresqlTest.Services
             objConn.Close();
         }
 
-        public void updateRoom(string r_id, string r_status)
+        public void updateRoom(string r_id, string r_status, string r_cs_id)
         {
             string dbInfo = "Server=ec2-23-20-224-166.compute-1.amazonaws.com;Port=5432;User Id=qoyarodwurvhwk;Password=6f3163d0e09fce46ac86fbf29260d0b119a2025ff85cb94871cacf87c7dfa11d;Database=d1hrugp6772lpc";
             NpgsqlConnection objConn = new NpgsqlConnection(dbInfo);
@@ -62,13 +62,13 @@ namespace postgresqlTest.Services
 
             var cmd = new NpgsqlCommand();
             cmd.Connection = objConn;
-            cmd.CommandText = $"UPDATE public.room ET r_status ='{r_status}' WHERE r_id='{r_id}'; ";
+            cmd.CommandText = $"UPDATE public.room SET r_status ='{r_status}' ,r_cs_id='{r_cs_id}' WHERE r_id='{r_id}'; ";
             cmd.ExecuteNonQuery();
 
             objConn.Close();
         }
 
-        public void insertCustomer(string cs_national_id, string cs_phone_number, string cs_room_number, DateTime cs_checkin_date, DateTime cs_checkout_date, int cs_number_day, int cs_number_adult, int cs_number_children, string cs_discount_type, double cs_advance_payment)
+        public void insertCustomer(string cs_id, string cs_national_id, string cs_phone_number, string cs_room_number, DateTime cs_checkin_date, DateTime cs_checkout_date, int cs_number_day, int cs_number_adult, int cs_number_children, string cs_discount_type, double cs_advance_payment, string cs_name)
         {
             string dbInfo = "Server=ec2-23-20-224-166.compute-1.amazonaws.com;Port=5432;User Id=qoyarodwurvhwk;Password=6f3163d0e09fce46ac86fbf29260d0b119a2025ff85cb94871cacf87c7dfa11d;Database=d1hrugp6772lpc";
             NpgsqlConnection objConn = new NpgsqlConnection(dbInfo);
@@ -76,7 +76,7 @@ namespace postgresqlTest.Services
 
             var cmd = new NpgsqlCommand();
             cmd.Connection = objConn;
-            cmd.CommandText = $"INSERT INTO public.customerinfo(cs_national_id, cs_phone_number, cs_room_number, cs_checkin_date, cs_checkout_date, cs_number_day, cs_number_adult, cs_number_children, cs_discount_type, cs_advance_payment) VALUES('{cs_national_id}', '{cs_phone_number}', '{cs_room_number}', '{cs_checkin_date}', '{cs_checkout_date}', '{cs_number_day}', '{cs_number_adult}', '{cs_number_children}', '{cs_discount_type}', '{cs_advance_payment}'); ";
+            cmd.CommandText = $"INSERT INTO public.customerinfo(cs_id, cs_national_id, cs_phone_number, cs_room_number, cs_checkin_date, cs_checkout_date, cs_number_day, cs_number_adult, cs_number_children, cs_discount, cs_advance_payment, cs_name) VALUES('{cs_id}','{cs_national_id}', '{cs_phone_number}', '{cs_room_number}', '{cs_checkin_date}', '{cs_checkout_date}', '{cs_number_day}', '{cs_number_adult}', '{cs_number_children}', '{cs_discount_type}', '{cs_advance_payment}','{cs_name}'); ";
             cmd.ExecuteNonQuery();
 
             objConn.Close();
@@ -99,7 +99,7 @@ namespace postgresqlTest.Services
             objConn.Close();
         }
 
-        public void updateCustomer(string update_customer_by, string update_cusomer_by_data, string cs_national_id, string cs_phone_number, string cs_room_number, DateTime cs_checkin_date, DateTime cs_checkout_date, int cs_number_day, int cs_number_adult, int cs_number_children, string cs_discount_type, decimal cs_advance_payment)
+        public void updateCustomer(CustomerInfoModel cs)
         {
             string dbInfo = "Server=ec2-23-20-224-166.compute-1.amazonaws.com;Port=5432;User Id=qoyarodwurvhwk;Password=6f3163d0e09fce46ac86fbf29260d0b119a2025ff85cb94871cacf87c7dfa11d;Database=d1hrugp6772lpc";
             NpgsqlConnection objConn = new NpgsqlConnection(dbInfo);
@@ -107,7 +107,7 @@ namespace postgresqlTest.Services
 
             var cmd = new NpgsqlCommand();
             cmd.Connection = objConn;
-            cmd.CommandText = $"UPDATE public.customerinfo SET cs_national_id='{cs_national_id}', cs_phone_number='{cs_phone_number}', cs_room_number='{cs_room_number}', cs_checkin_date='{cs_checkin_date}', cs_checkout_date='{cs_checkout_date}', cs_number_day='{cs_number_day}', cs_number_adult='{cs_number_adult}', cs_number_children='{cs_number_children}', cs_discount_type='{cs_discount_type}', cs_advance_payment='{cs_advance_payment}' WHERE {update_customer_by} = '{update_cusomer_by_data}';";
+            cmd.CommandText = $"UPDATE public.customerinfo SET cs_national_id='{cs.cs_national_id}', cs_phone_number='{cs.cs_phone_number}', cs_room_number='{cs.cs_room_number}', cs_checkin_date='{cs.cs_checkin_date}', cs_checkout_date='{cs.cs_checkout_date}', cs_number_day='{cs.cs_number_day}', cs_number_adult='{cs.cs_number_adult}', cs_number_children='{cs.cs_number_children}', cs_discount='{cs.cs_discount}', cs_advance_payment='{cs.cs_advance_payment}' WHERE  cs_id= '{cs.cs_id}';";
             cmd.ExecuteNonQuery();
 
             objConn.Close();
