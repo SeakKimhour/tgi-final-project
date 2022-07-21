@@ -206,7 +206,7 @@
             // btnHome
             // 
             this.btnHome.Image = global::WindowsFormHotelManagementSystem.Properties.Resources.TGI_logo_final_EN_03_03;
-            this.btnHome.Location = new System.Drawing.Point(0, 8);
+            this.btnHome.Location = new System.Drawing.Point(0, 4);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(289, 136);

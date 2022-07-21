@@ -1,20 +1,23 @@
-﻿using System;
+﻿using postgresqlTest.DataModels;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace WindowsFormHotelManagementSystem.Forms
 {
     public partial class FormCheckIn : Form
     {
+        FormMainMenu frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
+        RoomModel roomChoosen = null;
+        double total = 0;
         public FormCheckIn()
         {
+
             InitializeComponent();
+            txtnumofdays.Enabled = false;
+            txtsubtotal.Enabled = false;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -26,11 +29,23 @@ namespace WindowsFormHotelManagementSystem.Forms
         {
 
         }
-
+        public void addType()
+        {
+            frm.Gs.getRoomType();
+            comboRoomType.Items.Clear();
+            listRoomType = frm.Gs.RoomType;
+            foreach (String type in listRoomType)
+            {
+                comboRoomType.Items.Add(type);
+            }
+        }
+        List<String> listRoomType = new List<String>();
         private void FormCheckIn_Load(object sender, EventArgs e)
         {
+            addType();
 
         }
+
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
@@ -39,6 +54,11 @@ namespace WindowsFormHotelManagementSystem.Forms
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+
+            CustomerInfoModel insertCustomer = new CustomerInfoModel();
+            RoomModel roomchoice = new RoomModel();
+            List<RoomModel> listroom = frm.Gs.getAvailableiRoomList();
+
             errprovider.Clear();
             int temp = 0;
 
@@ -53,6 +73,7 @@ namespace WindowsFormHotelManagementSystem.Forms
             string guest_name = txtguestname.Text;
 
 
+
             if (int.TryParse(txtguestname.Text, out temp) == true)
             {
                 errprovider.SetIconAlignment(txtguestname, ErrorIconAlignment.MiddleRight);
@@ -62,6 +83,7 @@ namespace WindowsFormHotelManagementSystem.Forms
                 return;
             }
             guest_name = txtguestname.Text;
+            insertCustomer.cs_name = guest_name;
 
 
             if (string.IsNullOrEmpty(txtnationalid.Text))
@@ -73,20 +95,21 @@ namespace WindowsFormHotelManagementSystem.Forms
                 return;
             }
             string national_id = txtnationalid.Text;
+            insertCustomer.cs_national_id = national_id;
 
 
-            if (string.IsNullOrEmpty(txtroomtype.Text))
+            if (string.IsNullOrEmpty(comboRoomType.Text))
             {
-                errprovider.SetIconAlignment(txtroomtype, ErrorIconAlignment.MiddleRight);
-                errprovider.SetError(txtroomtype, "Room type cannot be blanked.");
-                txtroomtype.Focus();
-                txtroomtype.SelectAll();
+                errprovider.SetIconAlignment(comboRoomType, ErrorIconAlignment.MiddleRight);
+                errprovider.SetError(comboRoomType, "Room type cannot be blanked.");
+                comboRoomType.Focus();
+                comboRoomType.SelectAll();
                 return;
             }
-            string room_type = txtroomtype.Text;
+            string room_type = comboRoomType.Text;
 
 
-            if (int.TryParse(txtphone.Text, out temp) == false)
+            if (txtphone.Text.Length > 10)
             {
                 errprovider.SetIconAlignment(txtphone, ErrorIconAlignment.MiddleRight);
                 errprovider.SetError(txtphone, "Please input the phone number correctly!");
@@ -94,29 +117,32 @@ namespace WindowsFormHotelManagementSystem.Forms
                 txtphone.SelectAll();
                 return;
             }
-            int phone_number = int.Parse(txtphone.Text);
+            String phone_number = txtphone.Text;
+            insertCustomer.cs_phone_number = phone_number.ToString();
 
 
-            if (int.TryParse(txtroomnum.Text, out temp) == false)
+            if (comboRoomNum.Text == "")
             {
-                errprovider.SetIconAlignment(txtroomnum, ErrorIconAlignment.MiddleRight);
-                errprovider.SetError(txtroomnum, "Please input the room number correctly!");
-                txtroomnum.Focus();
-                txtroomnum.SelectAll();
+                errprovider.SetIconAlignment(comboRoomNum, ErrorIconAlignment.MiddleRight);
+                errprovider.SetError(comboRoomNum, "Please input the room number correctly!");
+
                 return;
             }
-            int room_number = int.Parse(txtroomnum.Text);
+            String room_number = comboRoomNum.Text;
+            insertCustomer.cs_room_number = room_number;
 
 
-            if (int.TryParse(txtnumofdays.Text, out temp) == false)
+            if (dtpcheckoutdate.Value.ToString("MM/dd/yyyy") == DateTime.Now.ToString("MM/dd/yyyy"))
             {
-                errprovider.SetIconAlignment(txtnumofdays, ErrorIconAlignment.MiddleRight);
-                errprovider.SetError(txtnumofdays, "Please input the number of days correctly!");
-                txtnumofdays.Focus();
-                txtnumofdays.SelectAll();
+                errprovider.SetIconAlignment(dtpcheckoutdate, ErrorIconAlignment.MiddleRight);
+                errprovider.SetError(dtpcheckoutdate, "Checkout date must not the same date as checkin");
                 return;
             }
+            insertCustomer.cs_checkout_date = dtpcheckoutdate.Value;
+            insertCustomer.cs_checkin_date = dtpcheckindate.Value;
             int numOfdays = int.Parse(txtnumofdays.Text);
+            insertCustomer.cs_number_day = numOfdays;
+
 
 
             if (int.TryParse(txtnumofadults.Text, out temp) == false)
@@ -128,6 +154,7 @@ namespace WindowsFormHotelManagementSystem.Forms
                 return;
             }
             int numOfadults = int.Parse(txtnumofadults.Text);
+            insertCustomer.cs_number_adult = numOfadults;
 
 
             if (int.TryParse(txtnumofchildren.Text, out temp) == false)
@@ -139,43 +166,33 @@ namespace WindowsFormHotelManagementSystem.Forms
                 return;
             }
             int numOfchildren = int.Parse(txtnumofadults.Text);
+            insertCustomer.cs_number_children = numOfchildren;
 
 
-            if (int.TryParse(txtdiscounttype.Text, out temp) == false)
+            if (int.TryParse(txtdiscount.Text, out temp) == false)
             {
-                errprovider.SetIconAlignment(txtdiscounttype, ErrorIconAlignment.MiddleLeft);
-                errprovider.SetError(txtdiscounttype, "Please input the number of children correctly!");
-                txtdiscounttype.Focus();
-                txtdiscounttype.SelectAll();
+                errprovider.SetIconAlignment(txtdiscount, ErrorIconAlignment.MiddleLeft);
+                errprovider.SetError(txtdiscount, "Please input the number of children correctly!");
+                txtdiscount.Focus();
+                txtdiscount.SelectAll();
                 return;
 
             }
-            int discount_type = int.Parse(txtdiscounttype.Text);
+            String discount = txtdiscount.Text;
+            insertCustomer.cs_discount = discount;
 
-            if (discount_type > 100)
+
+            if (discount.Length < 1)
             {
-                errprovider.SetIconAlignment(txtdiscounttype, ErrorIconAlignment.MiddleLeft);
-                errprovider.SetError(txtdiscounttype, "Discount cannot be larger than 100");
-                txtdiscounttype.Focus();
-                txtdiscounttype.SelectAll();
+                errprovider.SetIconAlignment(txtdiscount, ErrorIconAlignment.MiddleLeft);
+                errprovider.SetError(txtdiscount, "Discount cannot be larger than 100");
+                txtdiscount.Focus();
+                txtdiscount.SelectAll();
                 return;
             }
 
-            discount_type = discount_type;
-
-
-            if (int.TryParse(txtsubtotal.Text, out temp) == false)
-            {
-                errprovider.SetIconAlignment(txtsubtotal, ErrorIconAlignment.MiddleLeft);
-                errprovider.SetError(txtsubtotal, "Please input the sub total correctly!");
-                txtsubtotal.Focus();
-                txtsubtotal.SelectAll();
-                return;
-
-            }
-            int subTotal = int.Parse(txtsubtotal.Text);
-
-
+            discount = discount;
+            insertCustomer.cs_discount = discount.ToString() + "%";
             if (int.TryParse(txtadvance.Text, out temp) == false)
             {
                 errprovider.SetIconAlignment(txtadvance, ErrorIconAlignment.MiddleLeft);
@@ -186,6 +203,84 @@ namespace WindowsFormHotelManagementSystem.Forms
 
             }
             int advance_payment = int.Parse(txtadvance.Text);
+            insertCustomer.cs_advance_payment = advance_payment;
+            insertCustomer.cs_id = Guid.NewGuid().ToString();
+            txtguestname.Clear();
+            txtnationalid.Clear();
+            txtdiscount.Clear();
+            txtnumofchildren.Clear();
+
+            txtphone.Clear();
+
+            txtadvance.Clear();
+            dtpcheckindate.Value = DateTime.Now;
+            dtpcheckoutdate.Value = DateTime.Now;
+            comboRoomType.SelectedValue = "";
+            comboRoomNum.SelectedValue = "";
+            txtnumofadults.Clear();
+            listRoomType = frm.Gs.RoomType;
+
+            comboRoomNum.Items.Clear();
+            frm.Gs.checkin(insertCustomer);
+            additem();
+            addType();
+            txtnumofdays.Clear();
+            txtsubtotal.Clear();
+
+
+
+        }
+        public void additem()
+        {
+            frm.Gs.getRoomType();
+            comboRoomNum.Items.Clear();
+            roomAvailable = frm.Gs.findRoomByType(comboRoomType.Text);
+            if (roomAvailable.Count > 0)
+            {
+                txtsubtotal.Text = roomAvailable[0].r_cost.ToString("C");
+                roomChoosen = roomAvailable[0];
+                foreach (RoomModel room in roomAvailable)
+                {
+                    comboRoomNum.Items.Add(room.r_number);
+                }
+            }
+        }
+        List<RoomModel> roomAvailable = new List<RoomModel>();
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            frm.backHome();
+        }
+
+        private void lblDiscountType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void comboRoomType_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            additem();
+
+        }
+
+        private void dtpcheckoutdate_ValueChanged(object sender, EventArgs e)
+        {
+            double numDay = (((dtpcheckoutdate.Value).Subtract(dtpcheckindate.Value)).Days + 1);
+            txtnumofdays.Text = numDay.ToString();
+            total = roomChoosen.r_cost * numDay;
+            txtsubtotal.Text = (total).ToString("C");
+
+        }
+
+        private void txtdiscounttype_Leave(object sender, EventArgs e)
+        {
+            if (txtdiscount.Text.Length > 0)
+            {
+                txtsubtotal.Text = (total - (total * (double.Parse(txtdiscount.Text) / 100))).ToString("C");
+            }
+
+
         }
     }
 }

@@ -120,12 +120,22 @@ namespace WindowsFormHotelManagementSystem
 
         private void btncheckin_Click(object sender, EventArgs e)
         {
+
             ActivateButton(sender, RGBColors.color1);
             OpenChildForm(new FormCheckIn());
+        }
+        public void backHome()
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
         }
 
         private void btncheckout_Click(object sender, EventArgs e)
         {
+
             ActivateButton(sender, RGBColors.color2);
             OpenChildForm(new FormCheckOut());
         }
@@ -138,6 +148,7 @@ namespace WindowsFormHotelManagementSystem
 
         private void btncustomerinfo_Click(object sender, EventArgs e)
         {
+
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new FormCustomerInfo());
         }
@@ -150,11 +161,7 @@ namespace WindowsFormHotelManagementSystem
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            Reset();
+            backHome();
         }
         private void Reset()
         {
@@ -232,8 +239,13 @@ namespace WindowsFormHotelManagementSystem
 
         private void FormMainMenu_Load(object sender, EventArgs e)
         {
+            refresh();
+        }
+        public void refresh()
+        {
             gs = new generalService();
             gs.getAllDataFromDB();
+            gs.getRoomType();
         }
     }
 }

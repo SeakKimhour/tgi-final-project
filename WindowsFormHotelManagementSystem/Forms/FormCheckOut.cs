@@ -23,6 +23,18 @@ namespace WindowsFormHotelManagementSystem.Forms
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
+            if (txtAddtionPrice.Text.Length > 0)
+            {
+                csFound.cs_advance_payment = (csFound.cs_advance_payment + Double.Parse(txtAddtionPrice.Text));
+            }
+            txtGuestName.Clear();
+            dtp_check_in_date.Value = DateTime.Now;
+            dtp_check_out_date.Value = DateTime.Now;
+            txtTotalNight.Clear();
+            txtAddtionPrice.Clear();
+
+            frm.backHome();
+            frm.Gs.checkOut(csFound);
 
         }
 
@@ -33,8 +45,9 @@ namespace WindowsFormHotelManagementSystem.Forms
 
         private void FormCheckOut_Load(object sender, EventArgs e)
         {
+            dtp_check_in_date.Enabled = false;
             frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
-            List<RoomModel> roomList = frm.Gs.getAvalibleRoom();
+            List<RoomModel> roomList = frm.Gs.getBookedRoom();
 
             foreach (RoomModel r in roomList)
             {
@@ -46,17 +59,30 @@ namespace WindowsFormHotelManagementSystem.Forms
         private void cbb_room_SelectedIndexChanged(object sender, EventArgs e)
 
         {
-
+            txtGuestName.Clear();
+            dtp_check_in_date.Value = DateTime.Now;
+            dtp_check_out_date.Value = DateTime.Now;
+            txtTotalNight.Clear();
+            txtAddtionPrice.Clear();
             csFound = frm.Gs.searchByCSid(cbb_room.Text);
-            txtGuestName.Text = csFound.cs_name;
-            dtp_check_out_date.Value = csFound.cs_checkin_date;
-            dtp_check_in_date.Value = csFound.cs_checkout_date;
-            txtTotalNight.Text = csFound.cs_number_day.ToString();
+            if (csFound != null)
+            {
+                txtGuestName.Text = csFound.cs_name;
+                dtp_check_in_date.Value = csFound.cs_checkin_date;
+                dtp_check_out_date.Value = csFound.cs_checkout_date;
+                txtTotalNight.Text = csFound.cs_number_day.ToString();
+            }
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            frm.backHome();
         }
     }
 }
