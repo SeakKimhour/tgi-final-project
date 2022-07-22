@@ -86,9 +86,9 @@
             this.cbb_room.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbb_room.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbb_room.FormattingEnabled = true;
-            this.cbb_room.Location = new System.Drawing.Point(147, 78);
+            this.cbb_room.Location = new System.Drawing.Point(147, 76);
             this.cbb_room.Name = "cbb_room";
-            this.cbb_room.Size = new System.Drawing.Size(301, 25);
+            this.cbb_room.Size = new System.Drawing.Size(301, 29);
             this.cbb_room.TabIndex = 4;
             this.cbb_room.SelectedIndexChanged += new System.EventHandler(this.cbb_room_SelectedIndexChanged);
             this.cbb_room.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbb_room_KeyDown);
@@ -96,29 +96,29 @@
             // dtp_check_out_date
             // 
             this.dtp_check_out_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_check_out_date.Location = new System.Drawing.Point(148, 194);
+            this.dtp_check_out_date.Location = new System.Drawing.Point(148, 192);
             this.dtp_check_out_date.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_check_out_date.Name = "dtp_check_out_date";
-            this.dtp_check_out_date.Size = new System.Drawing.Size(299, 25);
+            this.dtp_check_out_date.Size = new System.Drawing.Size(299, 29);
             this.dtp_check_out_date.TabIndex = 50;
             // 
             // dtp_check_in_date
             // 
             this.dtp_check_in_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_check_in_date.Location = new System.Drawing.Point(148, 135);
+            this.dtp_check_in_date.Location = new System.Drawing.Point(148, 133);
             this.dtp_check_in_date.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_check_in_date.Name = "dtp_check_in_date";
-            this.dtp_check_in_date.Size = new System.Drawing.Size(299, 25);
+            this.dtp_check_in_date.Size = new System.Drawing.Size(299, 29);
             this.dtp_check_in_date.TabIndex = 49;
             // 
             // label6
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(30, 377);
+            this.label6.Location = new System.Drawing.Point(5, 362);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(110, 17);
+            this.label6.Size = new System.Drawing.Size(135, 46);
             this.label6.TabIndex = 7;
             this.label6.Text = "Additional price :";
             // 
@@ -126,10 +126,10 @@
             // 
             this.lblGuestName.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblGuestName.AutoSize = true;
-            this.lblGuestName.Location = new System.Drawing.Point(48, 21);
+            this.lblGuestName.Location = new System.Drawing.Point(24, 18);
             this.lblGuestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGuestName.Name = "lblGuestName";
-            this.lblGuestName.Size = new System.Drawing.Size(92, 17);
+            this.lblGuestName.Size = new System.Drawing.Size(116, 23);
             this.lblGuestName.TabIndex = 1;
             this.lblGuestName.Text = "Guest name : ";
             // 
@@ -137,10 +137,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 257);
+            this.label4.Location = new System.Drawing.Point(32, 254);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 17);
+            this.label4.Size = new System.Drawing.Size(108, 23);
             this.label4.TabIndex = 5;
             this.label4.Text = "Total Night : ";
             // 
@@ -148,10 +148,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 198);
+            this.label1.Location = new System.Drawing.Point(8, 183);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 17);
+            this.label1.Size = new System.Drawing.Size(132, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "Check Out Date : ";
             // 
@@ -159,10 +159,10 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 139);
+            this.label2.Location = new System.Drawing.Point(8, 136);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 17);
+            this.label2.Size = new System.Drawing.Size(132, 23);
             this.label2.TabIndex = 3;
             this.label2.Text = "Check In Date : ";
             // 
@@ -170,39 +170,39 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 80);
+            this.label5.Location = new System.Drawing.Point(7, 77);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 17);
+            this.label5.Size = new System.Drawing.Size(133, 23);
             this.label5.TabIndex = 6;
             this.label5.Text = "Room Number : ";
             // 
             // txtGuestName
             // 
             this.txtGuestName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtGuestName.Location = new System.Drawing.Point(148, 17);
+            this.txtGuestName.Location = new System.Drawing.Point(148, 15);
             this.txtGuestName.Margin = new System.Windows.Forms.Padding(4);
             this.txtGuestName.Name = "txtGuestName";
             this.txtGuestName.ReadOnly = true;
-            this.txtGuestName.Size = new System.Drawing.Size(299, 25);
+            this.txtGuestName.Size = new System.Drawing.Size(299, 29);
             this.txtGuestName.TabIndex = 41;
             // 
             // txtTotalNight
             // 
             this.txtTotalNight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTotalNight.Location = new System.Drawing.Point(148, 253);
+            this.txtTotalNight.Location = new System.Drawing.Point(148, 251);
             this.txtTotalNight.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalNight.Name = "txtTotalNight";
-            this.txtTotalNight.Size = new System.Drawing.Size(299, 25);
+            this.txtTotalNight.Size = new System.Drawing.Size(299, 29);
             this.txtTotalNight.TabIndex = 45;
             // 
             // txtAddtionPrice
             // 
             this.txtAddtionPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAddtionPrice.Location = new System.Drawing.Point(148, 373);
+            this.txtAddtionPrice.Location = new System.Drawing.Point(148, 371);
             this.txtAddtionPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddtionPrice.Name = "txtAddtionPrice";
-            this.txtAddtionPrice.Size = new System.Drawing.Size(299, 25);
+            this.txtAddtionPrice.Size = new System.Drawing.Size(299, 29);
             this.txtAddtionPrice.TabIndex = 47;
             // 
             // btnCheckIn
@@ -231,7 +231,7 @@
             // 
             // FormCheckOut
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(935, 496);

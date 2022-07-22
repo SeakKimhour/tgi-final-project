@@ -192,6 +192,10 @@ namespace WindowsFormHotelManagementSystem.Forms
             }
 
             discount = discount;
+
+
+
+
             insertCustomer.cs_discount = discount.ToString() + "%";
             if (int.TryParse(txtadvance.Text, out temp) == false)
             {
@@ -230,6 +234,8 @@ namespace WindowsFormHotelManagementSystem.Forms
 
 
         }
+
+
         public void additem()
         {
             frm.Gs.getRoomType();
@@ -281,6 +287,55 @@ namespace WindowsFormHotelManagementSystem.Forms
             }
 
 
+        }
+
+        private void txtphone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void txtguestname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtnumofadults_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtnumofchildren_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtdiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtadvance_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
