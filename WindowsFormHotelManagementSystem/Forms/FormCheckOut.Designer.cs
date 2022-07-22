@@ -30,8 +30,8 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.cbb_room = new System.Windows.Forms.ComboBox();
-            this.dtp_check_in_date = new System.Windows.Forms.DateTimePicker();
             this.dtp_check_out_date = new System.Windows.Forms.DateTimePicker();
+            this.dtp_check_in_date = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.lblGuestName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,8 +55,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68F));
             this.tableLayoutPanel1.Controls.Add(this.cbb_room, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dtp_check_in_date, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.dtp_check_out_date, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dtp_check_out_date, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.dtp_check_in_date, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.lblGuestName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
@@ -93,23 +93,23 @@
             this.cbb_room.SelectedIndexChanged += new System.EventHandler(this.cbb_room_SelectedIndexChanged);
             this.cbb_room.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbb_room_KeyDown);
             // 
-            // dtp_check_in_date
-            // 
-            this.dtp_check_in_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_check_in_date.Location = new System.Drawing.Point(148, 194);
-            this.dtp_check_in_date.Margin = new System.Windows.Forms.Padding(4);
-            this.dtp_check_in_date.Name = "dtp_check_in_date";
-            this.dtp_check_in_date.Size = new System.Drawing.Size(299, 25);
-            this.dtp_check_in_date.TabIndex = 50;
-            // 
             // dtp_check_out_date
             // 
             this.dtp_check_out_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtp_check_out_date.Location = new System.Drawing.Point(148, 135);
+            this.dtp_check_out_date.Location = new System.Drawing.Point(148, 194);
             this.dtp_check_out_date.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_check_out_date.Name = "dtp_check_out_date";
             this.dtp_check_out_date.Size = new System.Drawing.Size(299, 25);
-            this.dtp_check_out_date.TabIndex = 49;
+            this.dtp_check_out_date.TabIndex = 50;
+            // 
+            // dtp_check_in_date
+            // 
+            this.dtp_check_in_date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtp_check_in_date.Location = new System.Drawing.Point(148, 135);
+            this.dtp_check_in_date.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_check_in_date.Name = "dtp_check_in_date";
+            this.dtp_check_in_date.Size = new System.Drawing.Size(299, 25);
+            this.dtp_check_in_date.TabIndex = 49;
             // 
             // label6
             // 
@@ -183,6 +183,7 @@
             this.txtGuestName.Location = new System.Drawing.Point(148, 17);
             this.txtGuestName.Margin = new System.Windows.Forms.Padding(4);
             this.txtGuestName.Name = "txtGuestName";
+            this.txtGuestName.ReadOnly = true;
             this.txtGuestName.Size = new System.Drawing.Size(299, 25);
             this.txtGuestName.TabIndex = 41;
             // 
@@ -194,6 +195,7 @@
             this.txtTotalNight.Name = "txtTotalNight";
             this.txtTotalNight.Size = new System.Drawing.Size(299, 25);
             this.txtTotalNight.TabIndex = 45;
+            this.txtTotalNight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalNight_KeyPress);
             // 
             // txtAddtionPrice
             // 
@@ -203,6 +205,7 @@
             this.txtAddtionPrice.Name = "txtAddtionPrice";
             this.txtAddtionPrice.Size = new System.Drawing.Size(299, 25);
             this.txtAddtionPrice.TabIndex = 47;
+            this.txtAddtionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAddtionPrice_KeyPress);
             // 
             // btnCheckIn
             // 
@@ -226,6 +229,7 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormCheckOut
             // 
@@ -261,8 +265,8 @@
         private System.Windows.Forms.TextBox txtAddtionPrice;
         private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DateTimePicker dtp_check_in_date;
         private System.Windows.Forms.DateTimePicker dtp_check_out_date;
+        private System.Windows.Forms.DateTimePicker dtp_check_in_date;
         private System.Windows.Forms.ComboBox cbb_room;
     }
 }

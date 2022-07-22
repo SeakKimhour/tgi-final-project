@@ -14,18 +14,33 @@ namespace WindowsFormHotelManagementSystem.Service
         private List<UserLoginModel> userLoginList = new List<UserLoginModel>();
         private List<CustomerInfoModel> customerInfoList = new List<CustomerInfoModel>();
         private List<RoomModel> roomList = new List<RoomModel>();
+        private List<String> roomType = new List<String>();
 
+        public List<String> RoomType { get => roomType; }
 
         public List<UserLoginModel> UserLoginList() { return userLoginList; }
         public List<CustomerInfoModel> CustomerInfoList() { return customerInfoList; }
         public List<RoomModel> RoomList() { return roomList; }
-        public List<RoomModel> getAvalibleRoom()
+        public List<RoomModel> getBookedRoom()
         {
             List<RoomModel> res = new List<RoomModel>();
 
             foreach (RoomModel r in roomList)
             {
                 if (r.r_status.ToLower() == "Booked".ToLower())
+                {
+                    res.Add(r);
+                }
+            }
+            return res;
+        }
+        public List<RoomModel> getAvailableiRoomList()
+        {
+            List<RoomModel> res = new List<RoomModel>();
+
+            foreach (RoomModel r in roomList)
+            {
+                if (r.r_status.ToLower() == "Avaliable".ToLower())
                 {
                     res.Add(r);
                 }
@@ -65,16 +80,9 @@ namespace WindowsFormHotelManagementSystem.Service
         public void getAllDataFromDB()
         {
             ds.selectAllData(userLoginList, customerInfoList, roomList);
+
         }
-        public void checkIn(CustomerInfoModel csInfo)
-        {
-            if (csInfo == null)
-            {
-                return;
-            }
-            customerInfoList.Add(csInfo);
-            ds.insertCustomer(csInfo.cs_national_id, csInfo.cs_phone_number, csInfo.cs_room_number, csInfo.cs_checkin_date, csInfo.cs_checkout_date, csInfo.cs_number_day, csInfo.cs_number_adult, csInfo.cs_number_children, csInfo.cs_discount_type, csInfo.cs_advance_payment);
-        }
+
         public bool verifyLogin(UserLoginModel user)
         {
             foreach (UserLoginModel dbuser in userLoginList)
@@ -88,20 +96,77 @@ namespace WindowsFormHotelManagementSystem.Service
             }
             return false;
         }
+        public List<RoomModel> findRoomByType(String roomType)
+        {
+            List<RoomModel> listRoomFound = new List<RoomModel>();
+            foreach (RoomModel room in roomList)
+            {
+                if (room.r_status.Equals("Avaliable"))
+                {
+                    if (room.r_type.Equals(roomType))
+                    {
+                        listRoomFound.Add(room);
+                    }
+
+                }
+            }
+            return listRoomFound;
+        }
+        public void getRoomType()
+        {
+            roomType.Clear();
+            foreach (RoomModel room in roomList)
+            {
+                if (!roomType.Contains(room.r_type))
+                {
+                    if (room.r_status.Equals("Avaliable"))
+                    {
+                        roomType.Add(room.r_type);
+                    }
+
+                }
+            }
+        }
+        public void upadteCustomer(String cs_id)
+        {
+            foreach (CustomerInfoModel cs in customerInfoList)
+            {
+                if (cs.cs_id.Equals(cs_id))
+                {
+                    cs.cs_id = cs_id;
+                }
+            }
+        }
         public void checkOut(CustomerInfoModel cs)
         {
             for (int i = 0; i < roomList.Count; i++)
             {
                 if (roomList[i].r_number.Equals(cs.cs_room_number))
                 {
-                    RoomModel temp = roomList[i];
-                    temp.r_status = "Avaliable";
-                    roomList[i] = temp;
-                    ds.updateRoom(roomList[i].r_id, "Avaliable");
+                    roomList[i].r_status = "Avaliable";
+                    ds.updateRoom(roomList[i].r_id, "Avaliable", "");
+                    ds.updateCustomer(cs);
                     break;
                 }
             }
+        }
+        public void checkin(CustomerInfoModel cs)
+        {
+            for (int i = 0; i < roomList.Count; i++)
+            {
+                if (roomList[i].r_number.Equals(cs.cs_room_number))
+                {
+                    customerInfoList.Add(cs);
+                    roomList[i].r_status = "Booked";
+                    getRoomType();
+                    roomList[i].r_cs_id = cs.cs_id;
 
+                    ds.insertCustomer(cs.cs_id, cs.cs_national_id, cs.cs_phone_number, cs.cs_room_number, cs.cs_checkin_date, cs.cs_checkout_date, cs.cs_number_day, cs.cs_number_adult, cs.cs_number_children, cs.cs_discount, cs.cs_advance_payment, cs.cs_name);
+                    ds.updateRoom(roomList[i].r_id, "Booked", cs.cs_id);
+
+                    break;
+                }
+            }
         }
     }
 }
