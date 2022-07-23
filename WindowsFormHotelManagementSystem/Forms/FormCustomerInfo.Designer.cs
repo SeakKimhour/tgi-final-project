@@ -56,9 +56,9 @@
             // 
             // cs_name
             // 
+            this.cs_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_name.HeaderText = "Name";
             this.cs_name.Name = "cs_name";
-            this.cs_name.Width = 150;
             // 
             // cs_national_id
             // 
