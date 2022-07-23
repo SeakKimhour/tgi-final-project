@@ -114,7 +114,7 @@ namespace WindowsFormHotelManagementSystem.Forms
             string roomNumber = lblroomnumber.Text;
             
             
-            if (lblroomstatus.Text.Equals("Avaliable"))
+            if (lblroomstatus.Text.Equals("Available"))
             {
                 
                 FormMainMenu frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
@@ -126,7 +126,7 @@ namespace WindowsFormHotelManagementSystem.Forms
 
             }
 
-            if (!lblroomstatus.Text.Equals("Avaliable"))
+            if (lblroomstatus.Text.Equals("Booked"))
             {
 
                 FormMainMenu frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
