@@ -367,3 +367,4 @@ D:\Programming Language\Visual Studio\From Individual\tgi-final-project\WindowsF
 D:\Programming Language\Visual Studio\From Individual\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.csproj.CopyComplete
 D:\Programming Language\Visual Studio\From Individual\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.exe
 D:\Programming Language\Visual Studio\From Individual\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.pdb
+D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Forms.RoomCard.resources
