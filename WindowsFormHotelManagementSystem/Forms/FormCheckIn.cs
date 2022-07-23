@@ -51,6 +51,12 @@ namespace WindowsFormHotelManagementSystem.Forms
         {
 
         }
+        public void getClickedRoom(string clickedRoomType, string clickedRoomNumber)
+        {
+            comboRoomType.Text = clickedRoomType;
+            comboRoomNum.Text = clickedRoomNumber;
+
+        }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {

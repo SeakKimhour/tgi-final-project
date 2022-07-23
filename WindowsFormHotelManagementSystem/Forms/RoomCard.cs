@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using postgresqlTest.DataModels;
 
 namespace WindowsFormHotelManagementSystem.Forms
 {
     public partial class RoomCard : UserControl
     {
+
         public RoomCard()
         {
             InitializeComponent();
+            
         }
 
         public void switchColor(String checkStatus)
@@ -102,6 +105,45 @@ namespace WindowsFormHotelManagementSystem.Forms
         private void RoomCard_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.White;
+        }
+        FormCheckIn checkin_frm = null;
+        FormCheckOut checkout_frm = null;
+        private void RoomCard_DoubleClick(object sender, EventArgs e)
+        {
+            string roomType = lblroomtype.Text;
+            string roomNumber = lblroomnumber.Text;
+            
+            
+            if (lblroomstatus.Text.Equals("Avaliable"))
+            {
+                
+                FormMainMenu frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
+                frm.switchForm();
+                checkin_frm = (FormCheckIn)Application.OpenForms["FormCheckIn"];
+
+
+                checkin_frm.getClickedRoom(roomType, roomNumber);
+
+            }
+
+            if (!lblroomstatus.Text.Equals("Avaliable"))
+            {
+
+                FormMainMenu frm = (FormMainMenu)Application.OpenForms["FormMainMenu"];
+                frm.switchFormCheckOut();
+                checkout_frm = (FormCheckOut)Application.OpenForms["FormCheckOut"];
+
+
+                checkout_frm.getCheckoutInfo(roomNumber);
+
+            }
+
+
+        }
+
+        private void RoomCard_DoubleClick_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

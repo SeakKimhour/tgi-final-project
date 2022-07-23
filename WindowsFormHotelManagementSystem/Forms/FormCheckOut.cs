@@ -38,6 +38,11 @@ namespace WindowsFormHotelManagementSystem.Forms
 
         }
 
+        public void getCheckoutInfo(string roomNum)
+        {
+            cbb_room.Text = roomNum;
+        }
+
         private void cbb_room_KeyDown(object sender, KeyEventArgs e)
         {
 
