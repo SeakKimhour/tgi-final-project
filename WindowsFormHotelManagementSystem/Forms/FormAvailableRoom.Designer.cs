@@ -41,6 +41,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1100, 659);
             this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint_1);
             // 
             // FormAvailableRoom
             // 
@@ -50,7 +51,7 @@
             this.ClientSize = new System.Drawing.Size(1099, 668);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAvailableRoom";
             this.Text = "AVAILABLE ROOM";
             this.Load += new System.EventHandler(this.FormAvailableRoom_Load);

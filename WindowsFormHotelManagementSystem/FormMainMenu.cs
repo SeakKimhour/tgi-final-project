@@ -118,6 +118,16 @@ namespace WindowsFormHotelManagementSystem
 
         }
 
+        public void switchForm()
+        {
+            btncheckin.PerformClick();
+        }
+
+        public void switchFormCheckOut()
+        {
+            btncheckout.PerformClick();
+        }
+
         private void btncheckin_Click(object sender, EventArgs e)
         {
 

@@ -40,7 +40,7 @@ namespace WindowsFormHotelManagementSystem.Service
 
             foreach (RoomModel r in roomList)
             {
-                if (r.r_status.ToLower() == "Avaliable".ToLower())
+                if (r.r_status.ToLower() == "Available".ToLower())
                 {
                     res.Add(r);
                 }
@@ -101,7 +101,7 @@ namespace WindowsFormHotelManagementSystem.Service
             List<RoomModel> listRoomFound = new List<RoomModel>();
             foreach (RoomModel room in roomList)
             {
-                if (room.r_status.Equals("Avaliable"))
+                if (room.r_status.Equals("Available"))
                 {
                     if (room.r_type.Equals(roomType))
                     {
@@ -119,7 +119,7 @@ namespace WindowsFormHotelManagementSystem.Service
             {
                 if (!roomType.Contains(room.r_type))
                 {
-                    if (room.r_status.Equals("Avaliable"))
+                    if (room.r_status.Equals("Available"))
                     {
                         roomType.Add(room.r_type);
                     }
@@ -143,8 +143,8 @@ namespace WindowsFormHotelManagementSystem.Service
             {
                 if (roomList[i].r_number.Equals(cs.cs_room_number))
                 {
-                    roomList[i].r_status = "Avaliable";
-                    ds.updateRoom(roomList[i].r_id, "Avaliable", "");
+                    roomList[i].r_status = "Available";
+                    ds.updateRoom(roomList[i].r_id, "Available", "");
                     ds.updateCustomer(cs);
                     break;
                 }
