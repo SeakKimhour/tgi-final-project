@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnhotelincome = new FontAwesome.Sharp.IconButton();
+            this.btnLoginOut = new FontAwesome.Sharp.IconButton();
             this.btncustomerinfo = new FontAwesome.Sharp.IconButton();
             this.btnavailableroom = new FontAwesome.Sharp.IconButton();
             this.btncheckout = new FontAwesome.Sharp.IconButton();
@@ -61,7 +61,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
-            this.panelMenu.Controls.Add(this.btnhotelincome);
+            this.panelMenu.Controls.Add(this.btnLoginOut);
             this.panelMenu.Controls.Add(this.btncustomerinfo);
             this.panelMenu.Controls.Add(this.btnavailableroom);
             this.panelMenu.Controls.Add(this.btncheckout);
@@ -75,28 +75,23 @@
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
-            // btnhotelincome
+            // btnLoginOut
             // 
-            this.btnhotelincome.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnhotelincome.FlatAppearance.BorderSize = 0;
-            this.btnhotelincome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhotelincome.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnhotelincome.IconChar = FontAwesome.Sharp.IconChar.Coins;
-            this.btnhotelincome.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnhotelincome.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnhotelincome.IconSize = 32;
-            this.btnhotelincome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhotelincome.Location = new System.Drawing.Point(0, 456);
-            this.btnhotelincome.Margin = new System.Windows.Forms.Padding(4);
-            this.btnhotelincome.Name = "btnhotelincome";
-            this.btnhotelincome.Padding = new System.Windows.Forms.Padding(13, 0, 27, 0);
-            this.btnhotelincome.Size = new System.Drawing.Size(293, 78);
-            this.btnhotelincome.TabIndex = 5;
-            this.btnhotelincome.Text = "HOTEL INCOME";
-            this.btnhotelincome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhotelincome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnhotelincome.UseVisualStyleBackColor = true;
-            this.btnhotelincome.Click += new System.EventHandler(this.btnhotelincome_Click);
+            this.btnLoginOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(22)))), ((int)(((byte)(39)))));
+            this.btnLoginOut.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnLoginOut.FlatAppearance.BorderSize = 0;
+            this.btnLoginOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoginOut.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLoginOut.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnLoginOut.IconColor = System.Drawing.Color.Black;
+            this.btnLoginOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLoginOut.Location = new System.Drawing.Point(0, 586);
+            this.btnLoginOut.Name = "btnLoginOut";
+            this.btnLoginOut.Size = new System.Drawing.Size(293, 33);
+            this.btnLoginOut.TabIndex = 8;
+            this.btnLoginOut.Text = "Login Out";
+            this.btnLoginOut.UseVisualStyleBackColor = false;
+            this.btnLoginOut.Click += new System.EventHandler(this.btnLoginOut_Click);
             // 
             // btncustomerinfo
             // 
@@ -206,7 +201,7 @@
             // btnHome
             // 
             this.btnHome.Image = global::WindowsFormHotelManagementSystem.Properties.Resources.TGI_logo_final_EN_03_03;
-            this.btnHome.Location = new System.Drawing.Point(0, 4);
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(289, 136);
@@ -380,7 +375,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton btnhotelincome;
         private FontAwesome.Sharp.IconButton btncustomerinfo;
         private FontAwesome.Sharp.IconButton btnavailableroom;
         private FontAwesome.Sharp.IconButton btncheckout;
@@ -396,6 +390,7 @@
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnExit;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton btnLoginOut;
     }
 }
 

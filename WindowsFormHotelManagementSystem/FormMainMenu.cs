@@ -163,11 +163,7 @@ namespace WindowsFormHotelManagementSystem
             OpenChildForm(new FormCustomerInfo());
         }
 
-        private void btnhotelincome_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.color5);
-            OpenChildForm(new FormHotelIncome());
-        }
+
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -252,6 +248,18 @@ namespace WindowsFormHotelManagementSystem
             gs = new generalService();
             gs.getAllDataFromDB();
             gs.getRoomType();
+        }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoginOut_Click(object sender, EventArgs e)
+        {
+            FormLogIn frm = new FormLogIn();
+            frm.Show();
+            this.Close();
         }
     }
 }

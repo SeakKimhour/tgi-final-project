@@ -264,7 +264,6 @@ D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\D
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Forms.FormCheckIn.resources
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Forms.FormCheckOut.resources
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Forms.FormCustomerInfo.resources
-D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Forms.FormHotelIncome.resources
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.Properties.Resources.resources
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.csproj.GenerateResource.cache
 D:\project\TUX\module_1\tgi-final-project\WindowsFormHotelManagementSystem\obj\Debug\WindowsFormHotelManagementSystem.csproj.CoreCompileInputs.cache

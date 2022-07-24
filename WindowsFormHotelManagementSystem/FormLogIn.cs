@@ -70,8 +70,7 @@ namespace WindowsFormHotelManagementSystem
 
         private void btnlogin_Click(object sender, EventArgs e)
         {
-            textBoxUsername.Text = "seakkimhour";
-            textBoxPassword.Text = "chinanoob";
+
             UserLoginModel user = new UserLoginModel("", textBoxUsername.Text, textBoxPassword.Text);
             bool verify = gs.verifyLogin(user);
             if (verify)
@@ -85,7 +84,7 @@ namespace WindowsFormHotelManagementSystem
             }
             if (!verify)
             {
-                MessageBox.Show("" + user.user_name + user.user_password, "sorry");
+                MessageBox.Show("Please ensure that your passowrod and userame is correct", "Something wrong");
             }
         }
 

@@ -65,38 +65,38 @@
             // 
             // cs_national_id
             // 
+            this.cs_national_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_national_id.HeaderText = "National ID";
             this.cs_national_id.Name = "cs_national_id";
             this.cs_national_id.ReadOnly = true;
-            this.cs_national_id.Width = 150;
             // 
             // cs_phone_number
             // 
+            this.cs_phone_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_phone_number.HeaderText = "Phone Number";
             this.cs_phone_number.Name = "cs_phone_number";
             this.cs_phone_number.ReadOnly = true;
-            this.cs_phone_number.Width = 130;
             // 
             // cs_room_number
             // 
+            this.cs_room_number.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_room_number.HeaderText = "Room Number";
             this.cs_room_number.Name = "cs_room_number";
             this.cs_room_number.ReadOnly = true;
-            this.cs_room_number.Width = 104;
             // 
             // cs_checkin_date
             // 
+            this.cs_checkin_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_checkin_date.HeaderText = "Checkin Date";
             this.cs_checkin_date.Name = "cs_checkin_date";
             this.cs_checkin_date.ReadOnly = true;
-            this.cs_checkin_date.Width = 150;
             // 
             // cs_checkout_date
             // 
+            this.cs_checkout_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cs_checkout_date.HeaderText = "Checkout Date";
             this.cs_checkout_date.Name = "cs_checkout_date";
             this.cs_checkout_date.ReadOnly = true;
-            this.cs_checkout_date.Width = 150;
             // 
             // FormCustomerInfo
             // 
