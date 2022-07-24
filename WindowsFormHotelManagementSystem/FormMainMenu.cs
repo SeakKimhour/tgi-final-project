@@ -221,10 +221,6 @@ namespace WindowsFormHotelManagementSystem
 
         private void FormMainMenu_Resize(object sender, EventArgs e)
         {
-            //if (WindowState == FormWindowState.Maximized)
-            //    FormBorderStyle = FormBorderStyle.None;
-            //else
-            //    FormBorderStyle = FormBorderStyle.Sizable;
         }
 
         private void panelLogo_Paint(object sender, PaintEventArgs e)
