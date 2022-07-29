@@ -89,7 +89,7 @@
             this.btnLoginOut.Name = "btnLoginOut";
             this.btnLoginOut.Size = new System.Drawing.Size(293, 33);
             this.btnLoginOut.TabIndex = 8;
-            this.btnLoginOut.Text = "Login Out";
+            this.btnLoginOut.Text = "Logout";
             this.btnLoginOut.UseVisualStyleBackColor = false;
             this.btnLoginOut.Click += new System.EventHandler(this.btnLoginOut_Click);
             // 
